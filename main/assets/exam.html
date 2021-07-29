@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VTTeditor v.1.0.0</title>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://kit.fontawesome.com/06ccafa28b.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            
+        }
+        body{
+            background-color: #707070;
+        }
+        .editor-menubar{
+            background-color: teal;
+            padding: 20px;
+            margin-bottom: 20px;
+            
+        }
+        .container{
+            position: absolute;
+            top: 8rem;
+            bottom: 0;
+            display: flex;
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 20px;
+           
+            
+           
+           
+        }
+        .right{
+            height: 100%;
+            width: 50%;
+             margin-left: 5px;
+            padding: 10px;
+            
+        }
+        .left{
+            height: 100%;
+            width: 50%;
+           border: 2px soild #000000;
+             margin-left: 5px;
+            padding: 4px;
+          
+        }
+    
+        #editor{
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            padding: 4px;
+            border: 2px solid black;
+            font-size: 17px;
+            line-height: 25px;
+            overflow: scroll;
+        }
+        #iframe{
+            width: 100%;
+            height: 100%;
+            background: white;
+            overflow: scroll;
+        }
+        @media only screen and (max-width: 600px) {
+   
+             .right{
+            height: 50%;
+            width: 100%;
+             margin-bottom: 5px; 
+            padding: 10px;
+            overflow: scroll;
+            
+        }
+            .left{
+            height: 50%;
+            width: 100%;
+           border: 2px soild #000000;
+             margin-bottom: 5px;
+            padding: 4px;
+          
+        }
+            .container{
+                display: block;
+            }
+}
+    </style>
+  
+</head>
+<body>
+
+   
+   
+    <div class="editor-menubar w3-animate-top"> 
+      <p style="color: antiquewhite;"><b>VTT</b><sub><i>WebEditor</i></sub></p>
+       <button class="btn  w3-button w3-round w3-teal btn-dark" onclick="dark()"><i class="fas fa-adjust"></i>DarkMode</button>
+       <button class="btn  w3-button w3-round w3-teal btn-light "  onclick="light()"> <i class="fas fa-adjust"></i> LightMode</button>
+       <button class="btn  w3-button w3-round w3-teal btn-run" onclick="run()"><i class="fas fa-play"></i> RUN</button>
+    </div>
+    <div class="container">
+        <div class="left w3-animate-left">
+          <label>Code Here...</label>
+           <div id="editor" contenteditable="">
+              &#x3C;!DOCTYPE html&#x3E;<br>
+       &lt;html&#x3E;<br>
+      &#x3C;head&#x3E;<br>
+       &#x3C;title&#x3E;Page Title&#x3C;/title&#x3E;<br>
+
+&#x3C;/head&#x3E;<br>
+      &#x3C;body&#x3E;<br>
+
+      &#x3C;h1&#x3E;My First Heading&#x3C;/h1&#x3E;<br>
+      &#x3C;p&#x3E;My first paragraph.&#x3C;/p&#x3E;<br>
+
+       &#x3C;/body&#x3E;<br>
+       &#x3C;/html&#x3E;<br>
+               
+           </div>
+        </div>
+        <div class="right w3-animate-right">
+        <label>Output:</label>
+        <iframe src=""  id="iframe"  frameborder="0" width="100%" height="100%"></iframe></div>
+    </div>
+    <script>
+    var editor=document.getElementById("editor");
+var iframe=document.getElementById("iframe");
+     function  run(){
+        var html= editor.textContent;
+        iframe.src="data:text/html;charset=utf-8,"+encodeURI(html);
+       }
+    function dark() {
+        editor.style.backgroundColor = "#383838";
+        editor.style.color="white";
+    }
+function light() {
+        editor.style.backgroundColor = "white";
+        editor.style.color="black";
+    }
+    </script>
+</body>
+</html>

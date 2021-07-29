@@ -1,0 +1,7 @@
+com/vtt/webview/BuildConfig.java
+ com.vtt.webview.BuildConfig
+com/vtt/webview/MainActivity.java
+ com.vtt.webview.MainActivity
+com/vtt/webview/slaph.java
+ com.vtt.webview.slaph
+ com.vtt.webview.slaph$1
